@@ -34,7 +34,7 @@ import Searchicon from "@/components/icons/Searchicon.vue";
      </div>
 
       <div class="navbar-end">
-      <button class="btn btn-ghost text-lg">登录</button>
+      <RouterLink :to="{name:'login-index'}" active-class="btn-focus" class=" btn btn-ghost text-lg">登录</RouterLink>
 
       </div>
 
@@ -51,24 +51,28 @@ import Searchicon from "@/components/icons/Searchicon.vue";
       <ul class="menu w-full grow">
         <!-- List item -->
         <li>
-          <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3" data-tip="首页">
+          <RouterLink :to="{name:'homepage-index'}" active-class="menu-focus" class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3" data-tip="首页">
          <Homepageicon/>
             <span class="is-drawer-close:hidden text-base whitespace-nowrap">首页</span>
-          </button>
+          </RouterLink>
         </li>
 
         <li>
-          <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3" data-tip="好友">
+          <RouterLink :to="{name:'friends-index'}" active-class="menu-focus" class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3" data-tip="好友">
             <Friendicon/>
             <span class="is-drawer-close:hidden text-base whitespace-nowrap">好友</span>
-          </button>
+          </RouterLink>
         </li>
 
         <li>
-          <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3" data-tip="创作">
-            <Createicon/>
-            <span class="is-drawer-close:hidden text-base whitespace-nowrap">创作</span>
-          </button>
+          <RouterLink
+      :to="{ name:'create-index'}" active-class="menu-focus"
+      class="is-drawer-close:tooltip is-drawer-close:tooltip-right py-3"
+      data-tip="创作"
+    >
+      <Createicon />
+      <span class="is-drawer-close:hidden text-base whitespace-nowrap">创作</span>
+    </RouterLink>
         </li>
 
 
