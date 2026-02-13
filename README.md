@@ -1,2 +1,2 @@
 # AIfriends
-AI智能体
+AI虚拟人物创作分享平台
