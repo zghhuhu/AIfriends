@@ -6,7 +6,6 @@ from web.models.user import UserProfile
 
 
 class Friend(models.Model):
-    objects = None
     me = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
     memory = models.TextField(default="", max_length=5000, blank=True, null=True)
@@ -18,7 +17,6 @@ class Friend(models.Model):
 
 
 class Message(models.Model):
-    objects = None
     friend = models.ForeignKey(Friend, on_delete=models.CASCADE)
     user_message = models.TextField(max_length=500)
     input = models.TextField(max_length=10000)
@@ -30,3 +28,14 @@ class Message(models.Model):
 
     def __str__(self):
         return f"{self.friend.character.name} - {self.friend.me.user.username} - {self.user_message[:50]} - {localtime(self.create_time).strftime('%Y-%m-%d %H:%M:%S')}"
+
+
+class SystemPrompt(models.Model):
+    title = models.CharField(max_length=100)
+    order_number = models.IntegerField(default=0)
+    prompt = models.TextField(max_length=10000)
+    create_time = models.DateTimeField(default=now)
+    update_time = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return f"{self.title} - {self.order_number} - {self.prompt[:50]} - {localtime(self.create_time).strftime('%Y-%m-%d %H:%M:%S')}"
