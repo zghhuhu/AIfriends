@@ -52,12 +52,12 @@ export default async function streamApi(url, options = {}) {
 
             onmessage(msg) {
                 if (msg.data === '[DONE]') {
-                    if (options.onmessage) options.onmessage('', true);
+                    if (options.onmessage) options.onmessage('');
                     return
                 }
                 try {
                     const json = JSON.parse(msg.data);
-                    if (options.onmessage) options.onmessage(json, false);
+                    if (options.onmessage) options.onmessage(json);
                 } catch (e) {
                     console.error("流解析失败:", e);
                 }
