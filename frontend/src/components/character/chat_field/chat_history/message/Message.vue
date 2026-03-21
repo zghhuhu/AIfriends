@@ -8,6 +8,7 @@ const user = useUserStore()
 
 <template>
   <div v-if="message.content">
+
     <div v-if="message.role === 'ai'" class="chat chat-start">
       <div class="chat-image avatar">
         <div class="w-10 rounded-full">
